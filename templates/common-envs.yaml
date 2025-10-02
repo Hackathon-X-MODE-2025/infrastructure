@@ -21,10 +21,11 @@ data:
   RABBITMQ_PORT: "5672"
   DATABASE_USER: "postgres"
   DATABASE_PASSWORD: "" #Postgres
-  DATA_BASE_PREDICTION_SERVICE_URL: "https://pilar-unnormative-gil.ngrok-free.dev"
+  DATA_BASE_PREDICTION_SERVICE_URL: "https://quercine-sagittally-milana.ngrok-free.dev"
   TRANSLATOR_LLM_SERVICE_URL: "http://translator-llm-service:8080"
   DAGS_REPO_ACCESS_TOKEN: "" #TOKEN to Git repo for Sync
   AIRFLOW_ADAPTER_SERVICE_URL: "http://air-flow-adapter-service:8080"
   AIRFLOW_BASEURL: "https://air-hack.bigtows.org"
   AIRFLOW_USER: "user"
   AIRFLOW_PASSWORD: "" #Pass
+  CODE_GENERATOR_SERVICE_URL: "https://pilar-unnormative-gil.ngrok-free.dev"
