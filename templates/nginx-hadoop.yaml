@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.nginx.hadoopHost }}
+    external-dns.alpha.kubernetes.io/ttl: "120"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "{{ .Values.nginx.corsAllowOrigin }}"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    #nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: hadoop-gateway
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ .Values.nginx.hadoopHost }}
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: hadoop-hadoop-hdfs-nn
+                port:
+                  number: 9870
+  tls:
+  - hosts:
+    - {{ .Values.nginx.hadoopHost }}
+    secretName: tls-secret 

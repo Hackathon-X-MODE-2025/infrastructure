@@ -1,0 +1,28 @@
+# lockbox:
+#   refId: e6qm4tbrcahifovtggr5
+#   secrets:
+#     - nats-client-user
+#     - nats-client-password
+#     - nats-cluster-user
+#     - nats-cluster-password
+#     - postgres-user
+#     - postgres-password
+#     - server-party-games-client-id
+#     - server-party-games-client-secret
+#     - server-lobby-client-id
+#     - server-lobby-client-secret
+#     - jwt-public-key
+#     - jwt-private-key
+#     - rabbitmq-user
+#     - rabbitmq-password
+nginx:
+  host: hack-2025.bigtows.org
+  airflowHost: air-hack.bigtows.org
+  hadoopHost: hadoop-hack.bigtows.org
+  sparkHost: spark-hack.bigtows.org
+  corsAllowOrigin: "*"
+  services:
+    - test
+    - etl-setup
+    - source-batch
+    - hdfs
